@@ -5,7 +5,7 @@ This project is built with Laravel, a popular PHP framework for web development.
 
 ## Prerequisites:
 
-* PHP >= 8.0 (https://www.php.net/)
+* PHP >= 8.2 (https://www.php.net/)
 * Composer (https://getcomposer.org/)
   
   
