@@ -20,7 +20,7 @@ class RegisterTest extends TestCase
             "password_confirmation" => "Secret123!",
         ];
 
-        $response = $this->json('POST', '/api/register', $userData);
+        $response = $this->json('POST', config('test.url') . '/register', $userData);
 
         $response->assertJsonStructure([
             'success',
@@ -40,7 +40,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'Secret123!',
         ];
 
-        $this->postJson('/api/register', $data)
+        $this->postJson(config('test.url') . '/register', $data)
             ->assertStatus(422) // Unprocessable Entity (validation errors)
             ->assertJsonValidationErrors('name');
     }
@@ -56,7 +56,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'Secret123!',
         ];
 
-        $this->postJson('/api/register', $data)
+        $this->postJson(config('test.url') . '/register', $data)
             ->assertStatus(422)
             ->assertJsonValidationErrors('name');
     }
@@ -69,7 +69,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'Secret123!',
         ];
 
-        $this->postJson('/api/register', $data)
+        $this->postJson(config('test.url') . '/register', $data)
             ->assertStatus(422)
             ->assertJsonValidationErrors('email');
     }
@@ -83,7 +83,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'Secret123!',
         ];
 
-        $this->postJson('/api/register', $data)
+        $this->postJson(config('test.url') . '/register', $data)
             ->assertStatus(422)
             ->assertJsonValidationErrors('email');
     }
@@ -100,7 +100,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'Secret123!',
         ];
 
-        $this->postJson('/api/register', $data)
+        $this->postJson(config('test.url') . '/register', $data)
             ->assertStatus(422)
             ->assertJsonValidationErrors('email');
     }
@@ -113,7 +113,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'Secret123!',
         ];
 
-        $this->postJson('/api/register', $data)
+        $this->postJson(config('test.url') . '/register', $data)
             ->assertStatus(422)
             ->assertJsonValidationErrors('password');
     }
@@ -127,7 +127,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'short',
         ];
 
-        $this->postJson('/api/register', $data)
+        $this->postJson(config('test.url') . '/register', $data)
             ->assertStatus(422)
             ->assertJsonValidationErrors('password');
     }
@@ -141,7 +141,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'lowercase123!',
         ];
 
-        $this->postJson('/api/register', $data)
+        $this->postJson(config('test.url') . '/register', $data)
             ->assertStatus(422)
             ->assertJsonValidationErrors('password');
     }
@@ -155,7 +155,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'password123',
         ];
 
-        $this->postJson('/api/register', $data)
+        $this->postJson(config('test.url') . '/register', $data)
             ->assertStatus(422)
             ->assertJsonValidationErrors('password');
     }

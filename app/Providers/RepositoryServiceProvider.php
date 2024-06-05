@@ -11,10 +11,9 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // dd( \App\Repositories\SanctumAuthRepository::class,
-        // \App\Repositories\Interface\AuthInterface::class);
         $this->app->bind(\App\Repositories\Interfaces\AuthInterface::class, \App\Repositories\SanctumAuthRepository::class);
-
+        $this->app->bind(\App\Repositories\Interfaces\StoreInterface::class, \App\Repositories\StoreRepository::class);
+        $this->app->bind(\App\Repositories\Interfaces\ProductInterface::class, \App\Repositories\ProductRepository::class);
     }
 
     /**

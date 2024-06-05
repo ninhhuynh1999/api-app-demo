@@ -15,4 +15,9 @@ class Product extends Model
     {
         return $this->belongsTo(Store::class);
     }
+
+    public function userOwned()
+    {
+        return $this->hasOneThrough(User::class, Store::class, 'store_id', 'user_id');
+    }
 }

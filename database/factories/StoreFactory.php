@@ -17,12 +17,16 @@ class StoreFactory extends Factory
      */
     public function definition(): array
     {
-        $user = User::all()->random();
-        
+        $user = User::limit(5)->get()->random();
+        $created_at = fake()->dateTimeBetween('-1 year');
+        $updated_at = (clone $created_at)->add(date_interval_create_from_date_string(fake()->numberBetween(1, 100) . " days"));
+
         return [
             'name' => 'Store' . fake()->company(),
             'description' => fake()->paragraph(2), // Generate a 2-paragraph description
             'user_id' => $user->id,
+            'created_at' => $created_at,
+            'updated_at' => $updated_at,
         ];
     }
 }

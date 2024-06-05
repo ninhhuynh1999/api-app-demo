@@ -22,7 +22,7 @@ class LoginTest extends TestCase
             'password' => 'Secret123!',
         ];
 
-        $response = $this->postJson('/api/login', $data);
+        $response = $this->postJson(config('test.url') . '/login', $data);
 
         $response
             ->assertStatus(200)
@@ -40,7 +40,7 @@ class LoginTest extends TestCase
             'password' => 'secret123!',
         ];
 
-        $this->postJson('/api/login', $data)
+        $this->postJson(config('test.url') . '/login', $data)
             ->assertStatus(422) // Unprocessable Entity (validation errors)
             ->assertJsonValidationErrors('email');
     }
@@ -52,7 +52,7 @@ class LoginTest extends TestCase
             'password' => 'secret123!',
         ];
 
-        $this->postJson('/api/login', $data)
+        $this->postJson(config('test.url') . '/login', $data)
             ->assertStatus(422)
             ->assertJsonValidationErrors('email');
     }
@@ -63,7 +63,7 @@ class LoginTest extends TestCase
             'email' => 'valid@email.com',
         ];
 
-        $this->postJson('/api/login', $data)
+        $this->postJson(config('test.url') . '/login', $data)
             ->assertStatus(422)
             ->assertJsonValidationErrors('password');
     }
@@ -75,7 +75,7 @@ class LoginTest extends TestCase
             'password' => 'short',
         ];
 
-        $this->postJson('/api/login', $data)
+        $this->postJson(config('test.url') . '/login', $data)
             ->assertStatus(422)
             ->assertJsonValidationErrors('password');
     }
