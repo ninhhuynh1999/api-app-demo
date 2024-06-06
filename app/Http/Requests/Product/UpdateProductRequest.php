@@ -29,8 +29,8 @@ class UpdateProductRequest extends FormRequest
         return [
             'store_id' => ['bail', 'required', $ruleStoreExists],
             'name' => ['bail', 'required', 'min:8', $ruleUnique],
-            'amount' => ['bail', 'nullable', 'integer', 'gte:0'],
-            'price' => ['bail', 'nullable', 'numeric', 'gt:0'],
+            'amount' => ['bail', 'required', 'integer', 'gte:0'],
+            'price' => ['bail', 'required', 'numeric', 'gt:0'],
         ];
     }
 
