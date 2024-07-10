@@ -1,7 +1,12 @@
-Laravel Project Setup
+## Demo DynamicFilteringTrait
+This project demonstrates a reusable trait (component) for dynamically filtering data displayed on a page. It allows users to search and filter data based on various criteria, including:
 
+- Columns: Supports filtering by specific columns like "name" or "description".
+- Operators: Provides multiple search operators like "equal to", "greater than", "like" (partial string match), etc.
+- Data Types: Handles different data types like numbers, strings, and dates with appropriate operators.
+- This trait offers a flexible and configurable approach to building dynamic search functionalities within your web application.
 
-This project is built with Laravel, a popular PHP framework for web development. It utilizes SQLite for its database, which is convenient for development but may require a different database solution for production environments.
+You can find the trait at [SearchFilterTrait.php](https://github.com/ninhhuynh1999/api-app-demo/blob/main/app/Traits/SearchFilterTrait.php)
 
 ## Prerequisites:
 
